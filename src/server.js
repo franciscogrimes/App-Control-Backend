@@ -19,6 +19,8 @@ class Server {
   async database() {
     try {
       await connection.authenticate()
+      await connection.sync({ alter: true })
+      console.log('📦 Tabelas sincronizadas com sucesso.')
       console.log('✅ Conexão ao banco de dados estabelecida com sucesso.')
     } catch (error) {
       console.error('❌ Erro ao conectar ao banco de dados:', error)
